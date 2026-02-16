@@ -6,37 +6,55 @@ let score = JSON.parse(localStorage.getItem('score')) || {
         
         function gamePlay(user_move){
             let compter_move = computerMove();
+            let output = document.querySelector('.play-output');
+            let display_result = document.querySelector('.display-result');
+
             if(user_move === 'rock'){
                 if(compter_move === 'rock'){
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, it's draw!`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, it's draw!`);
+                    output.innerText = "It's Draw!";
+                    output.classList.add("play-output");
                 } else if (compter_move === 'paper') {
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, compter won`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, compter won`);
+                    output.innerText = "You Lose";
+                    output.classList.add("play-output");
                 } else {
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, you win`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, you win`);
+                    output.innerText = "You Win";
+                    output.classList.add("play-output");
                 }
                 ShowResult(user_move,compter_move);
+                display_result.classList.add("display-result-id");
             }
 
             if(user_move === 'paper'){
                 if(compter_move === 'rock'){
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, you win`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, you win`);
+                    output.innerText = "You Win";
                 } else if (compter_move === 'paper') {
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, it draw!`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, it draw!`);
+                    output.innerText = "It's Draw!";
                 } else {
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, computer win`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, computer win`);
+                    output.innerText = "You Lose";
                 }
                 ShowResult(user_move,compter_move);
+                display_result.classList.add("display-result-id");
             }
 
             if(user_move === 'scissor'){
                 if(compter_move === 'rock'){
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, computer win`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, computer win`);
+                    output.innerText = "You Lose";
                 } else if (compter_move === 'paper') {
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, you win`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, you win`);
+                    output.innerText = "You Win";
                 } else {
-                    alert(`You choose ${user_move}, Computer choose ${compter_move}, it's draw!`);
+                    // alert(`You choose ${user_move}, Computer choose ${compter_move}, it's draw!`);
+                    output.innerText = "It's Draw!";
                 }
                 ShowResult(user_move,compter_move);
+                display_result.classList.add("display-result-id");
             }
 
         }
