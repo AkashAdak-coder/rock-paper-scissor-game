@@ -4,113 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissor Game</title>
-    <!-- CSS part -->
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            background-color: #f79156;
-            height: 100vh;
-            width: 100vw;
-        }
-        .game{
-            height: 100%;
-            width: 100%;
-            background-color: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .move{
-            height: 300px;
-            width: 700px;
-            border-radius: 1rem;
-            box-shadow: 0 0 2px 1px white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .result{
-            height: 100px;
-            width: 700px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-        }
-        .result p{
-            font-size: 1.5rem;
-            color: #b0f908;
-        }
-        .result button{
-            height: 40px;
-            width: 100px;
-            background-color: #c3fa4e;
-            border: none;
-            color: #ef330d;
-            font-size: 0.8rem;
-            font-weight: 900;
-            border-radius: 10px;
-        }
-        .result p span{
-            color: white;
-        }
-        .move button{
-            height: 200px;
-            width: 195px;
-            border: none;
-            border-radius: 50%;
-            background-color:  #ecce46;
-            color: white;
-            font-size: 2.3rem;
-            cursor: pointer;
-            margin: 10px;
-            transition: 2s;
-        }
-        .move button:hover{
-            background-color: #ff8c00;
-        }
-        .display{
-            height: 30%;
-            width: 90%;
-            border: none;
-            margin-bottom: 4rem;
-            display: none;
-        }
-        .player-display{
-            padding-left: 10rem;
-        }
-        .player-display,.computer-display{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        }
-        .display img{
-            height: 100px;
-            margin: 0 1rem;
-        }
-        .display p{
-            font-size: 4rem;
-        }
-        .seen{
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <!-- HTML part -->
 <body>
     
     <div class="game">
-        <div class="display">
-            
+        <div class="display-moves">
             <div class="player-display">
                 <p>You Choose </p> <img src="rock.webp" class="player-move-img">
             </div>
@@ -118,16 +18,23 @@
                 <img src="rock.webp" class="computer-move-img"> <p> Computer Choose</p>
             </div>
         </div>
-        <div class="move">
-            <button class="btn" onclick="
-                gamePlay('rock');
-            ">Rock</button>
-            <button class="btn" onclick="
-                gamePlay('paper');
-            ">Paper</button>
-            <button class="btn" onclick="
-                gamePlay('scissor');
-            ">Scissor</button>
+        <div class="display-result">
+            <p class="result"></p>
+        </div>
+        <div class="buttons">
+            <div class="ins">Choose your move</div>
+
+            <div class="move">
+                <button class="btn" onclick="
+                    gamePlay('rock');
+                ">Rock</button>
+                <button class="btn" onclick="
+                    gamePlay('paper');
+                ">Paper</button>
+                <button class="btn" onclick="
+                    gamePlay('scissor');
+                ">Scissor</button>
+            </div>
         </div>
         <div class="result">
             <p>You win : <span>0</span> </p>
@@ -238,7 +145,7 @@
         function showMove(user_move , compter_move) {
             let player_move_img = document.querySelector('.player-move-img');
             let computer_move_img = document.querySelector('.computer-move-img');
-            const display = document.querySelector('.display');
+            const display = document.querySelector('.display-moves');
             
             let path1 = user_move + ".webp";
             let path2 = compter_move + ".webp";
