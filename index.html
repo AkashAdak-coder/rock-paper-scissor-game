@@ -15,9 +15,15 @@
             You: <span>0</span>   |   Draw: <span>0</span>    | Computer: <span>0</span> 
         </div>
         <div class="game-arena-card">
-            <button><img src="./images/rock.webp" alt="rock"></button>
-            <button><img src="./images/paper.webp" alt="paper"></button>
-            <button><img src="./images/scissor.webp" alt="scissor"></button>
+            <button onclick="
+                countWinning('rock');
+            "><img src="./images/rock.webp" alt="rock"></button>
+            <button onclick="
+                countWinning('paper');
+            "><img src="./images/paper.webp" alt="paper"></button>
+            <button onclick="
+                countWinning('scissor');
+            "><img src="./images/scissor.webp" alt="scissor"></button>
         </div>
         <div class="result"></div>
     </main>
