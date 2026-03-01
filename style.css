@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -119,4 +119,55 @@ body{
 }
 .result p span{
     color: white;
-}   
+}    */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: #252525;
+    color: #fff;
+}
+h1{
+    font-size: 4rem;
+    text-align: center;
+    padding: 1rem 0;
+    text-shadow: 3px 3px 6px #f8f2f2;
+}
+.main{
+    display: grid;
+    grid-template-rows: 0.4fr 1fr 0.2fr;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+
+}
+.score-board{
+    text-align: center;
+    font-size: 3rem;
+}
+.game-arena-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap :4rem;
+}
+.game-arena-card button{
+    height: 20rem;
+    width: 20rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: black;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+button img{
+    height: 200px;
+}
