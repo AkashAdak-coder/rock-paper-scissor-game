@@ -7,43 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <div class="game">
-        <div class="display-moves">
-            <div class="player-display">
-                <p>You Choose </p> <img src="rock.webp" class="player-move-img">
-            </div>
-            <div class="computer-display">
-                <img src="rock.webp" class="computer-move-img"> <p> Computer Choose</p>
-            </div>
+    <header class="header">
+        <h1> Rock Paper Scissors Game </h1>
+    </header>
+    <main class="main">
+        <div class="score-board">
+            You: <span>0</span>   |   Draw: <span>0</span>    | Computer: <span>0</span> 
         </div>
-        <div class="display-result">
-            <p class="play-output"></p>
+        <div class="game-arena-card">
+            <button><img src="./images/rock.webp" alt="rock"></button>
+            <button><img src="./images/paper.webp" alt="paper"></button>
+            <button><img src="./images/scissor.webp" alt="scissor"></button>
         </div>
-        <div class="buttons">
-            <div class="ins">Choose your move</div>
+        <div class="result"></div>
+    </main>
 
-            <div class="move">
-                <button class="btn" onclick="
-                    gamePlay('rock');
-                ">Rock</button>
-                <button class="btn" onclick="
-                    gamePlay('paper');
-                ">Paper</button>
-                <button class="btn" onclick="
-                    gamePlay('scissor');
-                ">Scissor</button>
-            </div>
-        </div>
-        <div class="result">
-            <p>You win : <span>0</span> </p>
-            <p>Computer win : <span>0</span> </p>
-            <p>Draw : <span>0</span> </p>
-            <button class="restart" onclick="
-                restart();
-            ">Restart Game</button>
-        </div>
-    </div>
     <script src="script.js"></script>
 </body>
 </html>
