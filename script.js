@@ -33,8 +33,9 @@ let score = JSON.parse(localStorage.getItem('score')) || {
             localStorage.removeItem('score');
         }
 
-        function countWinning(user_move ,compter_move) {
+        function countWinning(user_move) {
             let spans = document.getElementsByTagName('span');
+            let compter_move = computerMove();
             
             if(compter_move === user_move){
                 score.draw++;
@@ -55,13 +56,13 @@ let score = JSON.parse(localStorage.getItem('score')) || {
         }
 
         function showMove(user_move , compter_move) {
-            let player_move_img = document.querySelector('.player-move-img');
-            let computer_move_img = document.querySelector('.computer-move-img');
-            const display = document.querySelector('.display-moves');
-            
-            let path1 = user_move + ".webp";
-            let path2 = compter_move + ".webp";
-            player_move_img.setAttribute('src',path1);
-            computer_move_img.setAttribute('src',path2);
-            display.classList.add("seen");
+            const result = document.querySelector('.result');
+
+            let path1 = "./images/" + user_move + ".webp";
+            let path2 = "./images/" + compter_move + ".webp";
+
+            let html = `<pre>You choose <img src="${path1}">                <img src="${path2}"> Computer choose</pre>
+            <div><button onclick="restart()">Re-Start score</button></div>`;
+
+            result.innerHTML = html;
         }
