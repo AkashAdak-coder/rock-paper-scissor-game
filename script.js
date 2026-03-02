@@ -39,7 +39,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
             
             if(compter_move === user_move){
                 score.draw++;
-                spans[2].innerText = score.draw;
+                spans[1].innerText = score.draw;
                 showMove(user_move,compter_move);
 
             } else if ((compter_move === 'rock' && user_move === 'paper') || (compter_move === 'paper' && user_move === 'scissor') || (compter_move === 'scissor' && user_move === 'rock')) {
@@ -48,7 +48,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
                 showMove(user_move,compter_move);
             } else {
                 score.lose++;
-                spans[1].innerText = score.lose;
+                spans[2].innerText = score.lose;
                 showMove(user_move,compter_move);
             }
 
