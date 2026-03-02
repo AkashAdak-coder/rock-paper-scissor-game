@@ -71,3 +71,85 @@ button img{
     font-size: 1rem;
     font-weight: 600;
 }
+/* for tablet */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .score-board {
+    font-size: 2.2rem;
+    margin: 2rem 0;
+  }
+
+  .game-arena-card {
+    gap: 2rem;
+  }
+
+  .game-arena-card button {
+    height: 14rem;
+    width: 14rem;
+  }
+
+  button img {
+    height: 140px;
+  }
+
+  .result .showing-move {
+    font-size: 2rem;
+    margin-left: 0;
+    justify-content: center;
+    gap: 2rem;
+    margin-left: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .restart-btn button{
+    width: 200px;
+    font-size: 1.3rem;
+  }
+}
+
+/* for mobile */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    padding: 0.5rem 0;
+  }
+
+  .main {
+    grid-template-rows: auto auto auto;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .score-board {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .game-arena-card {
+    grid-template-rows: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .game-arena-card button {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  button img {
+    height: 40px;
+  }
+
+  .result .showing-move {
+    flex-direction: column;
+    font-size: 1.4rem;
+    gap: 1rem;
+  }
+
+  .result img {
+    height: 50px;
+  }
+}
