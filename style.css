@@ -49,20 +49,23 @@ h1{
 button img{
     height: 200px;
 }
-.result pre{
-    text-align: center;
-    font-size: 3.5rem;
+.result .showing-move{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2.7rem;
+    margin-left: 7rem;
+    margin-bottom: 2rem;
 }
 .result img{
     height: 100px;
 }
-.result div{
+.restart-btn{
     text-align: center;
 }
-.result div button{
+.restart-btn button {
     width: 130px;
     height: 60px;
-    margin: 2rem 8rem 0 0; 
     border: none;
     border-radius: 0.6rem;
     font-size: 1rem;
