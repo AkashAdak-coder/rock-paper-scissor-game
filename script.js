@@ -61,8 +61,8 @@ let score = JSON.parse(localStorage.getItem('score')) || {
             let path1 = "./images/" + user_move + ".webp";
             let path2 = "./images/" + compter_move + ".webp";
 
-            let html = `<pre>You choose <img src="${path1}">                <img src="${path2}"> Computer choose</pre>
-            <div><button onclick="restart()">Re-Start score</button></div>`;
+            let html = `<div class="showing-move">You choose <img src="${path1}"><img src="${path2}"> Computer choose</div>
+            <div class="restart-btn"><button onclick="restart()">Re-Start score</button></div>`;
 
             result.innerHTML = html;
         }
