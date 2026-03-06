@@ -33,6 +33,25 @@ let score = JSON.parse(localStorage.getItem('score')) || {
             localStorage.removeItem('score');
         }
 
+        let intervalId;
+        let isAutoPlaying = false;
+
+        function autoPlay(){
+            const autoPlayBtn = document.querySelector('.auto-play-btn');
+            if(!isAutoPlaying){
+                intervalId = setInterval(function(){
+                    const playerMove = computerMove();
+                    countWinning(playerMove);
+                },1000);
+                isAutoPlaying = true;
+                autoPlayBtn.innerText = 'stop playing...';
+            } else {
+                clearInterval(intervalId);
+                isAutoPlaying = false;
+                autoPlayBtn.innerHTML = 'auto play';
+            }
+        }
+
         function countWinning(user_move) {
             let spans = document.getElementsByTagName('span');
             let compter_move = computerMove();
@@ -61,8 +80,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
             let path1 = "./images/" + user_move + ".webp";
             let path2 = "./images/" + compter_move + ".webp";
 
-            let html = `<div class="showing-move">You choose <img src="${path1}"><img src="${path2}"> Computer choose</div>
-            <div class="restart-btn"><button onclick="restart()">Reset score</button></div>`;
+            let html = `<div class="showing-move">You choose <img src="${path1}"><img src="${path2}"> Computer choose</div>`;
 
             result.innerHTML = html;
         }
