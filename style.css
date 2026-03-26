@@ -16,14 +16,14 @@ header{
 main{
   background: #0f0f0f;
   color: #fff;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 30px;
 }
 
 .container{
-  max-width: 700px;
+  max-width: 600px;
   width: 100%;
   height: fit-content;
   background-color: red;
@@ -37,28 +37,28 @@ main{
 }
 
 .container .score-board{
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: 600;
 }
 
-.container .game-board{
-  width: fit-content;
+.container .button-board{
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   justify-items: center;
   gap: 30px;
 }
 
-.game-board .game-buttons{
+.button-board .game-buttons{
   border: 2px solid #fff;
   border-radius: 50%;
-  padding: 2rem;
+  padding: 1.2rem;
   cursor: pointer;
   background: #000;
 }
 
-.game-board .game-buttons img{
-  height: 60px;
+.button-board .game-buttons img{
+  height: 40px;
 }
 
 .btn-container button{
@@ -67,12 +67,15 @@ main{
   border: none;
   border-radius: 5px;
   background: #fff;
+  cursor: pointer;
 }
 
 .display-board{
+  width: 60%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  gap: 20px;
   padding: 0 10px;
 }
 
@@ -83,16 +86,53 @@ main{
 .player-name{
   text-align: center;
   width: 150px;
-  font-weight: 600;
+  font-size: clamp(1rem,1.3rem,2vw);
 }
 
 .player-moves{
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  margin: 0 10px;
+  width: auto;
+  gap: 10px;
 }
 
 .player-moves img{
-  height: 40px;
+  height: 35px;
+}
+
+@media(max-width: 500px){
+
+  .container{
+    padding: 15px;
+    gap: 25px;
+  }
+
+  .container .button-board{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .button-board .game-buttons{
+    padding: 1rem;
+  }
+
+  .button-board img{
+    height: 40px;
+  }
+
+  .player-moves img{
+    height: 30px;
+  }
+
+  .score-board{
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .player-name{
+    width: auto;
+    font-size: 0.9rem;
+  }
 }
