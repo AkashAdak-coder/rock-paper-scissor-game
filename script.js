@@ -20,17 +20,17 @@ let score =
         return pick;
     }
         
-        function restart() {
-            let spans = document.getElementsByTagName('span');
-            
-            for (let span of spans) {
-                span.innerText = 0;
-            }
-
-            score.win = 0;
-            score.lose = 0;
-            score.draw = 0;
+    function restart() {
+        let spans = document.getElementsByTagName('span');
+        
+        for (let span of spans) {
+            span.innerText = 0;
         }
+
+        score.win = 0;
+        score.lose = 0;
+        score.draw = 0;
+    }
 
     let intervalId;
     let isAutoPlaying = false;
@@ -41,6 +41,7 @@ let score =
             intervalId = setInterval(() => {
                 const playerMove = computerMove();
                 countWinning(playerMove);
+                displayBoardResult(playerMove);
             },1000);
             isAutoPlaying = true;
             autoPlayBtn.innerText = 'stop-auto-play'; 
@@ -67,10 +68,20 @@ let score =
         }
     }
 
+    function displayBoardResult(user_move){
+        document.querySelector('.invisible').style.display = 'flex';
+        let userMoveImg = `images/${user_move}.webp`;
+        let computerMoveImg = `images/${computerMove()}.webp`;
+
+        document.querySelector('.move-image1').src = userMoveImg;
+        document.querySelector('.move-image2').src = computerMoveImg;
+    }
+
     document.querySelectorAll('.game-buttons').forEach( (button) =>{
         button.addEventListener('click', () =>{
             let user_move = button.dataset.move;
-            countWinning(user_move);    
+            countWinning(user_move); 
+            displayBoardResult(user_move);   
         });
     });
 
@@ -80,5 +91,4 @@ let score =
 
     document.querySelector('.js-auto-play-btn').addEventListener('click', () =>{
         autoPlay();
-    });
-        
+    });        

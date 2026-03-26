@@ -62,10 +62,37 @@ main{
 }
 
 .btn-container button{
-  width: 150px;
   font-size: 1.1rem;
   padding: 10px;
   border: none;
   border-radius: 5px;
   background: #fff;
+}
+
+.display-board{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.invisible{
+  display: none;
+}
+
+.player-name{
+  text-align: center;
+  width: 150px;
+  font-weight: 600;
+}
+
+.player-moves{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.player-moves img{
+  height: 40px;
 }
