@@ -1,163 +1,71 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-sizing: border-box;
-}
-body{
-    height: 100vh;
-    width: 100vw;
-    background-color: #252525;
-    color: #fff;
-}
-h1{
-    font-size: 4rem;
-    text-align: center;
-    padding: 1rem 0;
-    text-shadow: 3px 3px 6px #f8f2f2;
-}
-.main{
-    display: grid;
-    grid-template-rows: 0.4fr 1fr 0.2fr;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto',Arial;
 }
-.score-board{
-    text-align: center;
-    font-size: 3rem;
+
+header{
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
 }
-.game-arena-card{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap :4rem;
-}
-.game-arena-card button{
-    height: 20rem;
-    width: 20rem;
-    border: 2px solid white;
-    border-radius: 50%;
-    background-color: black;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-bottom: 2rem;
-}
-button img{
-    height: 200px;
-}
-.result .showing-move{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 2.7rem;
-    margin-left: 7rem;
-    margin-bottom: 2rem;
-}
-.result img{
-    height: 100px;
-}
-.btn-container{
+
+main{
+  background: #0f0f0f;
+  color: #fff;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 20px;
-}
-.reset-btn, .auto-play-btn{
-    width: 160px;
-    height: 60px;
-    border: none;
-    border-radius: 0.6rem;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-}
-/* for tablet */
-@media (max-width: 1024px) {
-  h1 {
-    font-size: 3rem;
-  }
-
-  .score-board {
-    font-size: 2.2rem;
-    margin: 2rem 0;
-  }
-
-  .game-arena-card {
-    gap: 2rem;
-  }
-
-  .game-arena-card button {
-    height: 14rem;
-    width: 14rem;
-  }
-
-  button img {
-    height: 140px;
-  }
-
-  .result .showing-move {
-    font-size: 2rem;
-    margin-left: 0;
-    justify-content: center;
-    gap: 2rem;
-    margin-left: 3rem;
-    margin-bottom: 5rem;
-  }
-
-  .reset-btn, .auto-play-btn{
-    width: 200px;
-    font-size: 1.3rem;
-  }
+  padding: 30px;
 }
 
-/* for mobile */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-    padding: 0.5rem 0;
-  }
+.container{
+  max-width: 700px;
+  width: 100%;
+  height: fit-content;
+  background-color: red;
+  display: grid;
+  justify-items: center;
+  gap: 40px;
+  padding: 20px;
+  background: #171717;
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
 
-  .main {
-    grid-template-rows: auto auto auto;
-    gap: 1.5rem;
-    padding: 0 1rem;
-  }
+.container .score-board{
+  font-size: 1.3rem;
+  font-weight: 600;
+}
 
-  .score-board {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-  }
+.container .game-board{
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-items: center;
+  gap: 30px;
+}
 
-  .game-arena-card {
-    grid-template-rows: 1fr;
-    gap: 1.5rem;
-    justify-items: center;
-  }
+.game-board .game-buttons{
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 2rem;
+  cursor: pointer;
+  background: #000;
+}
 
-  .game-arena-card button {
-    height: 5rem;
-    width: 5rem;
-  }
+.game-board .game-buttons img{
+  height: 60px;
+}
 
-  button img {
-    height: 40px;
-  }
-
-  .result .showing-move {
-    flex-direction: column;
-    font-size: 1.4rem;
-    gap: 1rem;
-  }
-
-  .result img {
-    height: 50px;
-  }
-  .btn-container{
-    display: grid;
-    grid-template-columns: 130px,130px;
-  }
+.btn-container button{
+  width: 150px;
+  font-size: 1.1rem;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
 }
