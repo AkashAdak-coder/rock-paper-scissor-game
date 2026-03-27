@@ -51,15 +51,14 @@ let score =
             autoPlayBtn.innerHTML = 'auto-play';
         }
     }
-
-    function countWinning(user_move) {
+    
+    function countWinning(user_move,computer_move) {
         let spans = document.getElementsByTagName('span');
-        let compter_move = computerMove();
         
-        if(compter_move === user_move){
+        if(computer_move === user_move){
             score.draw++;
             spans[1].innerText = score.draw;
-        } else if ((compter_move === 'rock' && user_move === 'paper') || (compter_move === 'paper' && user_move === 'scissor') || (compter_move === 'scissor' && user_move === 'rock')) {
+        } else if ((computer_move === 'rock' && user_move === 'paper') || (computer_move === 'paper' && user_move === 'scissor') || (computer_move === 'scissor' && user_move === 'rock')) {
             score.win++;
             spans[0].innerText = score.win;
         } else {
@@ -68,10 +67,10 @@ let score =
         }
     }
 
-    function displayBoardResult(user_move){
+    function displayBoardResult(user_move,computer_move){
         document.querySelector('.invisible').style.display = 'flex';
         let userMoveImg = `images/${user_move}.webp`;
-        let computerMoveImg = `images/${computerMove()}.webp`;
+        let computerMoveImg = `images/${computer_move}.webp`;
 
         document.querySelector('.move-image1').src = userMoveImg;
         document.querySelector('.move-image2').src = computerMoveImg;
@@ -80,8 +79,9 @@ let score =
     document.querySelectorAll('.game-buttons').forEach( (button) =>{
         button.addEventListener('click', () =>{
             let user_move = button.dataset.move;
-            countWinning(user_move); 
-            displayBoardResult(user_move);   
+            let computer_move = computerMove();
+            countWinning(user_move,computer_move); 
+            displayBoardResult(user_move,computer_move);   
         });
     });
 
