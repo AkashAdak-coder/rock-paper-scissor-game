@@ -39,9 +39,10 @@ let score =
         const autoPlayBtn = document.querySelector('.js-auto-play-btn');
         if(!isAutoPlaying){
             intervalId = setInterval(() => {
-                const playerMove = computerMove();
-                countWinning(playerMove);
-                displayBoardResult(playerMove);
+                let playerMove = computerMove();
+                let computer_Move = computerMove();
+                countWinning(playerMove,computer_Move);
+                displayBoardResult(playerMove,computer_Move);
             },1000);
             isAutoPlaying = true;
             autoPlayBtn.innerText = 'stop-auto-play'; 
