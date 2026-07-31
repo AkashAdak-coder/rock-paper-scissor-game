@@ -7,42 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <h1> Rock Paper Scissors Game </h1>
-    </header>
-    <main class="main">
-        <div class="container">
-            <div class="score-board">
-                You: <span>0</span>   |   Draw: <span>0</span>    | Computer: <span>0</span> 
+    <header>Rock Paper Scissor</header>
+    <main>
+        <section class="game-board">
+            <div class="display-moves"></div>
+            <div class="user-moves">
+
+                <button title="rock button" onclick="game('rock')">
+                <img src="hand.png" alt="rock">
+                </button>
+
+                <button title="paper button" onclick="game('paper')">
+                <img src="hand-paper.png" alt="paper">
+                </button>
+
+                <button title="scissor button" onclick="game('scissor')">
+                <img src="scissors (1).png" alt="Scissor">
+                </button>
+
             </div>
-            <div class="display-board invisible">
-                <div class="player-name">
-                    User
-                </div>
-                <div class="player-moves">
-                    <img src="images/rock.webp" class="move-image1">
-                    <img src="images/paper.webp" class="move-image2">
-                </div>
-                <div class="player-name">
-                    Computer
-                </div>
+            <div class="feature-buttons">
+
+                <button>auto-play</button>
+                <button onclick="resetScore()">reset score</button>
+                
             </div>
-            <div class="button-board">
-                <div class="game-buttons" data-move="rock">
-                    <img src="./images/rock.webp" alt="rock">
-                </div>
-                <div class="game-buttons" data-move="paper">
-                    <img src="./images/paper.webp" alt="paper">
-                </div>
-                <div class="game-buttons" data-move="scissor">
-                    <img src="./images/scissor.webp" alt="scissor">
-                </div>
-            </div>
-            <div class="btn-container">
-                <button class="js-reset-btn">Reset score</button> 
-                <button class="js-auto-play-btn">auto-play</button>
-            </div>
-        </div>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
