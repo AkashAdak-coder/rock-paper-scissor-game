@@ -1,137 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Roboto',Arial;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
-
 header{
-  background: #000;
-  color: #fff;
   text-align: center;
-  padding: 10px;
+  font-size: 3em;
+  font-weight: 600;
+  color: #6c9ff1;
 }
-
 main{
-  background: #0f0f0f;
-  color: #fff;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 30px;
+  align-items: center;
 }
-
-.container{
-  max-width: 600px;
+.game-board{
   width: 100%;
-  height: fit-content;
-  background-color: red;
-  display: grid;
-  justify-items: center;
-  gap: 40px;
-  padding: 20px;
-  background: #171717;
-  border: 2px solid #fff;
+  max-width: 500px;
+  padding: 20px 25px;
+  border: 2px solid #6c9ff1;
+  margin-top: 20px;
   border-radius: 10px;
 }
-
-.container .score-board{
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  font-weight: 600;
-}
-
-.container .button-board{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  justify-items: center;
-  gap: 30px;
-}
-
-.button-board .game-buttons{
-  border: 2px solid #fff;
-  border-radius: 50%;
-  padding: 1.2rem;
-  cursor: pointer;
-  background: #000;
-}
-
-.button-board .game-buttons img{
-  height: 40px;
-}
-
-.btn-container button{
-  font-size: 1.1rem;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #fff;
-  cursor: pointer;
-}
-
-.display-board{
-  width: 60%;
+.user-moves{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  padding: 0 10px;
-}
-
-.invisible{
-  display: none;
-}
-
-.player-name{
-  text-align: center;
-  width: 150px;
-  font-size: clamp(1rem,1.3rem,2vw);
-}
-
-.player-moves{
-  display: flex;
-  justify-content: space-between;
-  width: auto;
+  justify-content: center;
   gap: 10px;
 }
-
-.player-moves img{
-  height: 35px;
+.user-moves button{
+  border-radius: 50%;
+  border: 2px solid #6c9ff1;
+  background: transparent;
+  cursor: pointer;
 }
-
-@media(max-width: 500px){
-
-  .container{
-    padding: 15px;
-    gap: 25px;
-  }
-
-  .container .button-board{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .button-board .game-buttons{
-    padding: 1rem;
-  }
-
-  .button-board img{
-    height: 40px;
-  }
-
-  .player-moves img{
-    height: 30px;
-  }
-
-  .score-board{
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .player-name{
-    width: auto;
-    font-size: 0.9rem;
-  }
+.user-moves button img{
+  height: 100%;
+  width: 100%;
+  max-height: 90px;
+  max-width: 90px;
+  padding: 20px;
+  text-align: center;
+  color: #6c9ff1;
+  cursor: pointer;
+}
+.feature-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+.feature-buttons button{
+  width: 100%;
+  max-width: 120px;
+  font-size: 70%;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+.feature-buttons button:first-child{
+  color: white;
+  background: black; 
+}
+.feature-buttons button:last-child{
+  color: #025ff4;
 }
