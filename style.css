@@ -43,7 +43,7 @@ main{
   width: 100%;
   max-height: 90px;
   max-width: 90px;
-  padding: 20px;
+  padding: 20px 25px;
   text-align: center;
   color: #6c9ff1;
   cursor: pointer;

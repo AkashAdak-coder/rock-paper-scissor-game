@@ -5,24 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissor Game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .display-moves{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .display-moves .result{
+            font-weight: 600;
+            font-size: 1.5em;
+            color: #5e5efb;
+        }
+        .show-moves{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 50px;
+            padding: 20px 0;
+        } 
+        .show-moves i{
+            color: #5e5efb;
+            font-size: 5em;
+        }
+    </style>
 </head>
 <body>
     <header>Rock Paper Scissor</header>
     <main>
         <section class="game-board">
-            <div class="display-moves"></div>
+
+            <div class="display-moves">
+
+                <div class="js-result result">Win</div>
+                
+                <div class="js-show-moves show-moves">
+                    <i class="fa-regular fa-hand"></i>
+                    <i class="fa-regular fa-hand-scissors"></i>
+                    <!-- <i class="fa-regular fa-hand-back-fist"></i> -->
+                </div>
+            </div>
+
             <div class="user-moves">
 
                 <button title="rock button" onclick="game('rock')">
-                <img src="./images/hand.png" alt="rock">
+                <img src="./images/hand-rock.svg" alt="rock">
                 </button>
 
                 <button title="paper button" onclick="game('paper')">
-                <img src="./images/hand-paper.png" alt="paper">
+                <img src="./images/hand-paper.svg" alt="paper">
                 </button>
 
                 <button title="scissor button" onclick="game('scissor')">
-                <img src="./images/scissors (1).png" alt="Scissor">
+                <img src="./images/hand-scissor.svg" alt="Scissor">
                 </button>
 
             </div>
