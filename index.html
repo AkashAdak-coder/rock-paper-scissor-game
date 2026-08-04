@@ -6,32 +6,6 @@
     <title>Rock-Paper-Scissor Game</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        .display-moves{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 0;
-        }
-        .display-moves .result{
-            font-weight: 600;
-            font-size: 1.5em;
-            color: #5e5efb;
-        }
-        .show-moves{
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            gap: 50px;
-            padding: 20px 0;
-        } 
-        .show-moves i{
-            color: #5e5efb;
-            font-size: 5em;
-        }
-    </style>
 </head>
 <body>
     <header>Rock Paper Scissor</header>
@@ -40,12 +14,10 @@
 
             <div class="display-moves">
 
-                <div class="js-result result">Win</div>
-                
-                <div class="js-show-moves show-moves">
-                    <i class="fa-regular fa-hand"></i>
-                    <i class="fa-regular fa-hand-scissors"></i>
-                    <!-- <i class="fa-regular fa-hand-back-fist"></i> -->
+                <div class="js-result result"></div>
+                <div class="js-show-moves show-moves"></div>
+                <div class="js-count-result count-result">
+                    Win: 0  Lose: 0 Tie: 0
                 </div>
             </div>
 
@@ -66,7 +38,9 @@
             </div>
             <div class="feature-buttons">
 
-                <button>auto-play</button>
+                <button onclick="
+                    autoPlay();
+                " class="js-auto-play-btn">auto-play</button>
                 <button onclick="resetScore()">reset score</button>
                 
             </div>

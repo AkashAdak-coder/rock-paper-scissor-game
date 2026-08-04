@@ -6,55 +6,57 @@ const scores = JSON.parse(localStorage.getItem('score')) || {
 };
 
 function game(userMove){
-
-    const count = Math.floor(Math.random() * 3);
-    const move = ['rock','paper','scissor'];
-    const computerMove = move[count];
+    const computerMove = pickRandomMove();
 
     if((userMove === 'rock' &&  computerMove === 'paper')|| (userMove === 'scissor' && computerMove === 'rock') || (userMove === 'paper' && computerMove === 'scissor')){
-    result = "Lose";
-    scores.lose += 1;
-    alert(`User choose ${userMove}, Computer choose ${computerMove}, It's ${result}
-win : ${scores.win}  lose : ${scores.lose}  tie : ${scores.tie}`);
+
+        result = "Lose";
+        scores.lose += 1;
+
     } else if((userMove === 'rock' && computerMove === 'scissor')|| (userMove === 'scissor' && computerMove === 'paper') || (userMove === 'paper' && computerMove === 'rock')){
-    result = 'Win';
-    scores.win += 1;
-    alert(`User choose ${userMove}, Computer choose ${computerMove}, It's ${result}
-win : ${scores.win}  lose : ${scores.lose}  tie : ${scores.tie}`);
+
+        result = 'Win';
+        scores.win += 1;
+
     } else {
-    result = 'Tie';
-    scores.tie += 1;
-    alert(`User choose ${userMove}, Computer choose ${computerMove}, It's ${result}
-win : ${scores.win}  lose : ${scores.lose}  tie : ${scores.tie}`);
+
+        result = 'Tie';
+        scores.tie += 1;
+
     }
 
     localStorage.setItem('score',JSON.stringify(scores));
-    displayResult(result);
+    displayResult();
     showMoves(userMove,computerMove);
+    displayScoreResult();   
 }
 
-// function pickComputerMove(count){
-//   if(count === 1){
-//     return 'rock';
-//   } else if(count === 2){
-//     return 'paper';
-//   } else{
-//     return 'scissor';
-//   }
-// }
+function pickRandomMove(){
+    const count = Math.floor(Math.random() * 3);
+    const move = ['rock','paper','scissor'];
+    return move[count];
+}
 
-function resetScore(){
+function resetScore(){   
     scores.win = 0;
     scores.lose = 0;
     scores.tie = 0;
     localStorage.removeItem('score');
+    displayScoreResult();
+
     alert('score has been reset!');
 }
 
-function displayResult(result){
+function displayResult(){
     const displayResult = document.querySelector('.js-result');
 
     displayResult.textContent = `${result}`;
+}
+
+function displayScoreResult(){
+    let scoreDisplay = document.querySelector('.js-count-result');
+
+    scoreDisplay.innerHTML = `Win: ${scores.win}  Lose: ${scores.lose}  Tie: ${scores.tie}`;
 }
 
 function showMoves(move1,move2){
@@ -85,12 +87,41 @@ function showMoves(move1,move2){
             <i class="fa-regular fa-hand-scissors"></i>
             <i class="fa-regular fa-hand-back-fist"></i>
         `;
-    }else{
+    }else if(move1 === 'scissor' && move2 === 'paper'){
         showMove.innerHTML = `
             <i class="fa-regular fa-hand-scissors"></i>
             <i class="fa-regular fa-hand"></i>
         `;
+    }else if(move1 === 'scissor' && move2 === 'scissor'){
+        showMove.innerHTML = `
+            <i class="fa-regular fa-hand-scissors"></i>
+            <i class="fa-regular fa-hand-scissors"></i>
+        `;
+    }else if(move1 === 'paper' && move2 === 'paper'){
+        showMove.innerHTML = `
+            <i class="fa-regular fa-hand"></i>
+            <i class="fa-regular fa-hand"></i>
+        `;
+    }else if(move1 === 'rock' && move2 === 'rock'){
+        showMove.innerHTML = `
+            <i class="fa-regular fa-hand-back-fist"></i>
+            <i class="fa-regular fa-hand-back-fist"></i>
+        `;
     }
-       console.log(move1, move2);
+}
 
+let intervalId;
+
+function autoPlay(){
+    const autoPlayBtn = document.querySelector('.js-auto-play-btn');
+    if(!intervalId){
+        intervalId = setInterval(() =>{
+            let userMove = pickRandomMove();
+            game(userMove);
+        },1000);
+        autoPlayBtn.textContent = 'stop playing';
+    }else{
+        clearInterval(intervalId);
+        autoPlayBtn.textContent = 'auto-play';
+    }
 }

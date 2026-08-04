@@ -19,7 +19,7 @@ main{
   align-items: center;
 }
 .game-board{
-  width: 100%;
+  width: 90%;
   max-width: 500px;
   padding: 20px 25px;
   border: 2px solid #6c9ff1;
@@ -56,9 +56,10 @@ main{
   padding: 20px;
 }
 .feature-buttons button{
+  box-sizing: border-box;
   width: 100%;
   max-width: 120px;
-  font-size: 70%;
+  font-size: 0.8em;
   padding: 10px 20px;
   font-weight: 600;
   cursor: pointer;
@@ -70,5 +71,35 @@ main{
   background: black; 
 }
 .feature-buttons button:last-child{
-  color: #025ff4;
+  color: #0606dc;
+  background-color: #e9ebeb;
+}
+.display-moves{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+.display-moves .result{
+  font-weight: 600;
+  font-size: 1.5em;
+  color: #5e5efb;
+}
+.show-moves{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 50px;
+  padding: 20px 0;
+} 
+.show-moves i{
+  color: #5e5efb;
+  font-size: 5em;
+}
+.count-result{
+  color: #0606dc;
+  word-spacing: 10px;
+  font-weight: 600;
 }
