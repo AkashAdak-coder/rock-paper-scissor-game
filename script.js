@@ -1,9 +1,38 @@
 let result = '';
+let intervalId;
+let isAutoPlay = false;
+
 const scores = JSON.parse(localStorage.getItem('score')) || {
     win : 0,
     lose : 0,
     tie : 0
 };
+
+const buttons = document.querySelectorAll('.js-rock-paper-scissor-btn');
+const resetScoreBtn = document.querySelector('.js-reset-score-btn');
+const autoPlayBtn = document.querySelector('.js-auto-play-btn');
+
+buttons.forEach((button, index) =>{
+    button.addEventListener('click', () =>{
+        if(button.getAttribute('title') === 'rock'){
+            game('rock');
+        } else if(button.getAttribute('title') === 'paper'){
+            game('paper');
+        } else if(button.getAttribute('title') === 'scissor'){
+            game('scissor');
+        }
+    });
+});
+
+resetScoreBtn.addEventListener('click', () => {
+    resetScore();
+});
+
+autoPlayBtn.addEventListener("click", () => {
+    autoPlay;
+});
+
+
 
 function game(userMove){
     const computerMove = pickRandomMove();
@@ -110,18 +139,17 @@ function showMoves(move1,move2){
     }
 }
 
-let intervalId;
-
 function autoPlay(){
-    const autoPlayBtn = document.querySelector('.js-auto-play-btn');
-    if(!intervalId){
+    if(!isAutoPlay){
         intervalId = setInterval(() =>{
             let userMove = pickRandomMove();
             game(userMove);
         },1000);
         autoPlayBtn.textContent = 'stop playing';
-    }else{
+        isAutoPlay = true;
+    } else{
         clearInterval(intervalId);
         autoPlayBtn.textContent = 'auto-play';
+        isAutoPlay = false;
     }
 }
